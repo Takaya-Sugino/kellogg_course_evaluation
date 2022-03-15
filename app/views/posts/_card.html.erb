@@ -22,12 +22,20 @@
 
       <dt>Course</dt>
       <!-- Display course_id start -->
-      <dd><%= post.course_id %></dd>
+      <dd>
+        <% if @post.course.present? %>
+          <%= link_to post.course, post.course %>
+        <% end %>
+      </dd>
       <!-- Display course_id end -->
 
       <dt>Poster</dt>
       <!-- Display poster_id start -->
-      <dd><%= post.poster_id %></dd>
+      <dd>
+        <% if @post.poster.present? %>
+          <%= link_to post.poster, post.poster %>
+        <% end %>
+      </dd>
       <!-- Display poster_id end -->
 
     </dl>
