@@ -6,6 +6,10 @@ class Course < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :posters,
+             :through => :posts,
+             :source => :poster
+
   # Validations
 
   # Scopes

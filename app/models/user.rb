@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :courses,
+             :through => :posts,
+             :source => :course
+
   # Validations
 
   # Scopes
