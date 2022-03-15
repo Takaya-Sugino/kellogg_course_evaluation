@@ -1,0 +1,83 @@
+<% was_validated = course.errors.any? %>
+
+<%= form_with(model: course, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for number start -->
+  <div class="form-group">
+    <% number_class = "form-control" %>
+    <% number_was_invalid = course.errors.include?(:number) %>
+
+    <% if was_validated %>
+      <% if number_was_invalid %>
+        <% number_class << " is-invalid" %>
+      <% else %>
+        <% number_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :number %>
+    <!-- Input for number start -->
+    <%= f.text_field :number, class: number_class, placeholder: "Enter number" %>
+    <!-- Input for number end -->
+    <% if number_was_invalid %>
+      <% course.errors.full_messages_for(:number).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for number end -->
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <% name_class = "form-control" %>
+    <% name_was_invalid = course.errors.include?(:name) %>
+
+    <% if was_validated %>
+      <% if name_was_invalid %>
+        <% name_class << " is-invalid" %>
+      <% else %>
+        <% name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :name %>
+    <!-- Input for name start -->
+    <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
+    <!-- Input for name end -->
+    <% if name_was_invalid %>
+      <% course.errors.full_messages_for(:name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for name end -->
+  <!-- Label and input for core_elective start -->
+  <div class="form-group">
+    <% core_elective_class = "form-control" %>
+    <% core_elective_was_invalid = course.errors.include?(:core_elective) %>
+
+    <% if was_validated %>
+      <% if core_elective_was_invalid %>
+        <% core_elective_class << " is-invalid" %>
+      <% else %>
+        <% core_elective_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :core_elective %>
+    <!-- Input for core_elective start -->
+    <%= f.text_field :core_elective, class: core_elective_class, placeholder: "Enter core elective" %>
+    <!-- Input for core_elective end -->
+    <% if core_elective_was_invalid %>
+      <% course.errors.full_messages_for(:core_elective).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for core_elective end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
