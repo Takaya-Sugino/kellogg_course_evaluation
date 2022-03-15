@@ -6,6 +6,8 @@ class UserResource < ApplicationResource
   attribute :program, :string
   attribute :graduation_year, :string
   attribute :interest, :string
+  attribute :email, :string
+  attribute :password, :string
 
   # Direct associations
 
