@@ -12,4 +12,7 @@ class CourseResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :posters,
+               resource: UserResource
+
 end
