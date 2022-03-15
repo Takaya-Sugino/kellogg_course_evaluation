@@ -8,11 +8,10 @@ class CourseResource < ApplicationResource
 
   # Direct associations
 
-  has_many   :posts
+  has_many :posts
 
   # Indirect associations
 
   many_to_many :posters,
                resource: UserResource
-
 end

@@ -2,13 +2,13 @@ class Course < ApplicationRecord
   # Direct associations
 
   has_many   :posts,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :posters,
-             :through => :posts,
-             :source => :poster
+             through: :posts,
+             source: :poster
 
   # Validations
 
@@ -17,5 +17,4 @@ class Course < ApplicationRecord
   def to_s
     number
   end
-
 end

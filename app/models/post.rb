@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   # Direct associations
 
   belongs_to :poster,
-             :class_name => "User"
+             class_name: "User"
 
   belongs_to :course
 
@@ -15,5 +15,4 @@ class Post < ApplicationRecord
   def to_s
     professor
   end
-
 end
