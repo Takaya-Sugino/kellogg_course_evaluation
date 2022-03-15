@@ -1,0 +1,135 @@
+<% was_validated = post.errors.any? %>
+
+<%= form_with(model: post, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for professor start -->
+  <div class="form-group">
+    <% professor_class = "form-control" %>
+    <% professor_was_invalid = post.errors.include?(:professor) %>
+
+    <% if was_validated %>
+      <% if professor_was_invalid %>
+        <% professor_class << " is-invalid" %>
+      <% else %>
+        <% professor_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :professor %>
+    <!-- Input for professor start -->
+    <%= f.text_field :professor, class: professor_class, placeholder: "Enter professor" %>
+    <!-- Input for professor end -->
+    <% if professor_was_invalid %>
+      <% post.errors.full_messages_for(:professor).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for professor end -->
+  <!-- Label and input for rating start -->
+  <div class="form-group">
+    <% rating_class = "form-control" %>
+    <% rating_was_invalid = post.errors.include?(:rating) %>
+
+    <% if was_validated %>
+      <% if rating_was_invalid %>
+        <% rating_class << " is-invalid" %>
+      <% else %>
+        <% rating_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :rating %>
+    <!-- Input for rating start -->
+    <%= f.text_field :rating, class: rating_class, placeholder: "Enter rating" %>
+    <!-- Input for rating end -->
+    <% if rating_was_invalid %>
+      <% post.errors.full_messages_for(:rating).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for rating end -->
+  <!-- Label and input for description start -->
+  <div class="form-group">
+    <% description_class = "form-control" %>
+    <% description_was_invalid = post.errors.include?(:description) %>
+
+    <% if was_validated %>
+      <% if description_was_invalid %>
+        <% description_class << " is-invalid" %>
+      <% else %>
+        <% description_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :description %>
+    <!-- Input for description start -->
+    <%= f.text_field :description, class: description_class, placeholder: "Enter description" %>
+    <!-- Input for description end -->
+    <% if description_was_invalid %>
+      <% post.errors.full_messages_for(:description).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for description end -->
+  <!-- Label and input for course_id start -->
+  <div class="form-group">
+    <% course_class = "form-control" %>
+    <% course_was_invalid = post.errors.include?(:course) %>
+
+    <% if was_validated %>
+      <% if course_was_invalid %>
+        <% course_class << " is-invalid" %>
+      <% else %>
+        <% course_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :course_id %>
+    <!-- Input for course_id start -->
+    <%= f.number_field :course_id, class: course_class, placeholder: "Enter course" %>
+    <!-- Input for course_id end -->
+    <% if course_was_invalid %>
+      <% post.errors.full_messages_for(:course).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for course_id end -->
+  <!-- Label and input for poster_id start -->
+  <div class="form-group">
+    <% poster_class = "form-control" %>
+    <% poster_was_invalid = post.errors.include?(:poster) %>
+
+    <% if was_validated %>
+      <% if poster_was_invalid %>
+        <% poster_class << " is-invalid" %>
+      <% else %>
+        <% poster_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :poster_id %>
+    <!-- Input for poster_id start -->
+    <%= f.number_field :poster_id, class: poster_class, placeholder: "Enter poster" %>
+    <!-- Input for poster_id end -->
+    <% if poster_was_invalid %>
+      <% post.errors.full_messages_for(:poster).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for poster_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
