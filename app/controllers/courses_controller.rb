@@ -8,6 +8,7 @@ class CoursesController < ApplicationController
 
   # GET /courses/1
   def show
+    @post = Post.new
   end
 
   # GET /courses/new
